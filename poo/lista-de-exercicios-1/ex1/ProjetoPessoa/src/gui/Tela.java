@@ -193,7 +193,7 @@ public class Tela extends javax.swing.JFrame {
             Pessoa objPessoa = new Pessoa();
 
             objPessoa.setNome(jTextFieldNome.getText());
-            
+
             objPessoa.setPeso((jTextFieldPeso.getText().trim().length() == 0) ? 0
                     : Integer.parseInt(jTextFieldPeso.getText().trim()));
 
@@ -201,15 +201,13 @@ public class Tela extends javax.swing.JFrame {
                     : Float.parseFloat(jTextFieldAltura.getText().replace(",", ".").trim()));
 
             objPessoa.setSexo(jComboBoxSexo.getSelectedItem().toString());
-            objPessoa.setImc();
-            objPessoa.setSituacao();
 
             String saida = "NOME: " + objPessoa.getNome() + "\n"
                     + "PESO: " + String.format("%d", objPessoa.getPeso()) + " kg\n"
                     + "ALTURA: " + String.format("%.2f", objPessoa.getAltura()) + " m\n"
                     + "SEXO: " + objPessoa.getSexo() + "\n"
-                    + "IMC: " + String.format("%.3f", objPessoa.getImc()) + "\n"
-                    + "SITUAÇÃO: " + objPessoa.getSituacao();
+                    + "IMC: " + String.format("%.3f", objPessoa.calcularImc()) + "\n"
+                    + "SITUAÇÃO: " + objPessoa.classificarImc();
 
             jTextAreaSaida.setText(saida);
 
@@ -271,12 +269,35 @@ public class Tela extends javax.swing.JFrame {
             jTextFieldAltura.setText(texto.substring(0, maximoCaracteres));
         }
 
+        char keyChar = evt.getKeyChar();
         switch (texto.length()) {
             case 1:
-                texto += ",";
+                texto = (texto.charAt(0) == ',') ? "" : texto + ",";
+
                 break;
             case 2:
-                texto = texto.substring(0, 1);
+                if (keyChar == '\b' || keyChar == '') {
+                    texto = (texto.contains(',' + "")) ? texto.replace(",", "") : texto.substring(0,1) + "," + texto.substring(1,2);
+                }
+
+//                if (keyChar == '\b') { // backspace
+//                    texto = texto.substring(0, 1);
+//                }
+//                if (keyChar == '') { // delete
+//                    if (texto.charAt(0) == ',') {
+//                        texto = texto.substring(1, texto.length()); // tira a vírgula do inicio
+//                    } else {
+//                        texto = texto.substring(0, 1); // tira a vírgula do final
+//                    }
+//                }
+                break;
+
+            case 3:
+                if (keyChar == '') { // delete
+                    if (texto.charAt(0) == ',') {
+                        texto = texto.substring(1, 2) + "," + texto.substring(2, 3); // tira a vírgula do inicio e posiciona entre os 2 decimais
+                    }
+                }
                 break;
         }
 

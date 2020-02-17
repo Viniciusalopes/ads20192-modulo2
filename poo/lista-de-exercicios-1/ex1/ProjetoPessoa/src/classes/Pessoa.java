@@ -11,8 +11,6 @@ public class Pessoa {
     private int peso = 0;
     private float altura = 0;
     private String sexo = "";
-    private float imc = 0;
-    private String situacao = "";
 
     // MÉTODOS -------------------------------------------------------------------------->
     // GET ------------------------------------------------------------------------------>
@@ -30,14 +28,6 @@ public class Pessoa {
 
     public String getSexo() {
         return sexo;
-    }
-
-    public float getImc() throws Exception {
-        return imc;
-    }
-
-    public String getSituacao() throws Exception {
-        return situacao;
     }
 
     // SET ------------------------------------------------------------------------------>
@@ -65,26 +55,30 @@ public class Pessoa {
         this.sexo = sexo;
     }
 
-    public void setImc() throws Exception {
+    // CÁLCULOS ------------------------------------------------------------------------->
+    public float calcularImc() throws Exception {
         validarPeso(peso);
         validarAltura(altura);
 
-        imc = (peso / (altura * altura));
+        return (peso / (altura * altura));
     }
 
-    public void setSituacao() {
+    public String classificarImc() throws Exception {
+        
+        float imc = calcularImc();
+
         if (imc < 17) {
-            situacao = "Muito abaixo do peso";
+            return "Muito abaixo do peso";
         } else if (imc < 18.50) {
-            situacao = "Abaixo do peso";
+            return "Abaixo do peso";
         } else if (imc < 25) {
-            situacao = "Peso normal";
+            return "Peso normal";
         } else if (imc < 35) {
-            situacao = "Obesidade I";
+            return "Obesidade I";
         } else if (imc <= 40) {
-            situacao = "Obesidade II (Severa)";
+            return "Obesidade II (Severa)";
         } else {
-            situacao = "Obesidade III (Mórbida)";
+            return "Obesidade III (Mórbida)";
         }
     }
 
