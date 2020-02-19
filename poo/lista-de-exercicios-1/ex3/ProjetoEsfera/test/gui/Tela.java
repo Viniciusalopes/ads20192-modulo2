@@ -5,6 +5,11 @@
  */
 package gui;
 
+import classes.Esfera;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author vovo
@@ -16,6 +21,9 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+
+        // CENTRALIZA o jFrame na tela
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -37,7 +45,18 @@ public class Tela extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Projeto Esfera");
 
+        jTextFieldRaio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldRaioKeyPressed(evt);
+            }
+        });
+
         jButtonVai.setText("Vai");
+        jButtonVai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVaiActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Raio");
 
@@ -82,6 +101,48 @@ public class Tela extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonVaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVaiActionPerformed
+
+        vai();
+    }//GEN-LAST:event_jButtonVaiActionPerformed
+
+    private void jTextFieldRaioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldRaioKeyPressed
+
+        if (evt.getExtendedKeyCode() == KeyEvent.VK_ENTER) {
+
+            vai();
+        }//GEN-LAST:event_jTextFieldRaioKeyPressed
+    }
+
+    private void vai() {
+        // Cria objeto da classe 
+        Esfera bolinha = new Esfera();
+
+        try {
+            // Tentar...
+
+            // Setar o raio
+            bolinha.setRaio(Float.parseFloat(jTextFieldRaio.getText().replace(",", ".")));
+
+            // Exibir a saída
+            jTextAreaSaida.setText("RAIO: " + bolinha.getRaio()
+                    + "\nÁREA: " + bolinha.calcularArea()
+                    + "\nVOLUME: " + bolinha.calcularVolume());
+        } catch (Exception e) { // Deu zica
+            // Resolver a zica
+
+            // Mostra mensagem de erro
+            JOptionPane.showMessageDialog(null, "Que raios de RAIO é esse?!?!", "Opa!", JOptionPane.ERROR_MESSAGE);
+
+            // Move o foco para um campo
+            jTextFieldRaio.grabFocus();
+
+            // Seleciona todo o texto do jTextField
+            jTextFieldRaio.selectAll();
+        }
+
+    }
 
     /**
      * @param args the command line arguments
