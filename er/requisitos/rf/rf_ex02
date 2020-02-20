@@ -1,0 +1,61 @@
+RF: Exercício 02: (Identificar os RF de Sistema desta clínica
+                médica através de uma breve descrição do cliente)
+
+Texto:
+    - Eu possuo uma clínica médica e atendo meus pacientes a mais de 15 anos.
+    Poxa, eu tenho atendido tanta gente que atualmente tenho esta sala aqui
+    somente para guardar as fichas de meus pacientes.
+
+    - As coisas que eu quero controlar me parecem bastante simples. Não quero
+    diminuir o trabalho de minha secretária quanto ao agendamento das
+    consultas, ela deve apenas cadastrar os novos pacientes.... Quero com este
+    sistema poder controlar as consultas de tal forma que o paciente entre no
+    meu consultório e eu já possa ter lido todo o seu histórico. Isto é, outras
+    vezes que ele esteve na clínica, qual a doença que ele tinha, os sintomas, os
+    medicamentos que foram ministrados, etc. Aliás não me interessa o
+    medicamento, eu quero saber é o seu princípio ativo. É que existem hoje
+    tantas opções de remédios...
+
+    - Ah, as crianças!!... eu tenho atendido muitas delas!! quero tratá-las como
+    um paciente normal, mas preciso saber quem é o responsável por ela e
+    também quero acompanhar sua taxa de crescimento e peso....
+
+    - Acho que fazer isso tudo funcionar melhor vai ser bastante simples. Antes
+    que eu me esqueça, também preciso manter os endereços de meus 
+    pacientes, para poder enviar um cartão de natal, ou um "feliz aniversário" ...
+
+- Cadastrar Pacientes:
+    - Nome
+    - Endereço
+    - Telefone
+    - Data de Nascimento
+    - Criança ((idade < 16) ? TRUE : FALSE)
+    - Responsável
+    - Taxa de Crescimento
+    - Peso
+
+- Cadastrar Consultas:
+    - Cliente
+    - Data
+    - Hora
+    - Status (Agendada, Cancelada, Confirmada, Realizada) 
+    - Sintomas
+    - Diagnósticos
+    - Prescrições
+
+- Cadastrar Medicamentos:
+    - Nome
+    - Principio ativo
+
+- Cadastrar Prescrições:
+    - Cliente
+    - Consulta
+    - Tratamentos
+    - Medicamentos
+
+- Relatório de Consultas:
+    - Por Cliente
+    - Por Data
+    - Por Status
+
+
