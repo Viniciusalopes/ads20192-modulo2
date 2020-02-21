@@ -27,7 +27,7 @@ public class Pessoa {
 
     // SET
     public void setNome(String nome) throws Exception {
-        if (nome.trim().length() == 0) {
+        if (nome.trim().length() < 2) {
             throw new Exception("nom001");
         }
         this.nome = nome;
@@ -48,7 +48,7 @@ public class Pessoa {
     }
 
     public void setSexo(String sexo) throws Exception {
-        if (sexo.trim().length() == 0 || (sexo != "Feminino" && sexo != "Masculino")) {
+        if (!sexo.equals("Feminino") && !sexo.equals("Masculino")) {
             throw new Exception("sex001");
         }
         this.sexo = sexo;
@@ -58,6 +58,21 @@ public class Pessoa {
         if (altura <= 0) {
             throw new Exception("alt002");
         }
-        return (peso / altura * altura);
+        return (peso / (altura * altura));
+    }
+
+    public String classificarImc(float imc) {
+
+        // FONTE: https://www.programasaudefacil.com.br/calculadora-de-imc
+        
+        if (imc < (float) 18.5) {
+            return "Magreza";
+        } else if (imc < (float) 24.9) {
+            return "Normal";
+        } else if (imc < (float) 29.9) {
+            return "Sobrepeso Grau II";
+        } else {
+            return "Obesidade Grave, Grau III";
+        }
     }
 }

@@ -15,10 +15,7 @@ public class Erro {
     private String codigo = "opa000";
 
     // CONSTRUTOR
-    public Erro(String codigo) throws Exception {
-        if (codigo.trim().length() == 0) {
-            throw new Exception("err001");
-        }
+    public Erro(String codigo) {
         this.codigo = codigo;
     }
 
@@ -28,21 +25,30 @@ public class Erro {
     }
 
     public String getMensagem() {
+        // Códigos em ordem alfabética
+        
         switch (codigo) {
-            case "nom001":
-                return "Nome inválido";
-
-            case "pes001":
-                return "Peso inválido";
-
             case "alt001":
-                return "Altura inválida";
-
-            case "sex001":
-                return "Sexo inválido";
+                return "Altura inválida!";
 
             case "alt002":
-                return "Impossível calcular o IMC. A altura é inválida";
+                return "Impossível calcular o IMC! A altura é inválida.";
+            
+            case "cam001":
+                return "Preencha todos os campos!";
+         
+            case "nom001":
+                return "Nome inválido!";
+
+            case "pes001":
+                return "Peso inválido!";
+
+            case "sex001":
+                return "Sexo inválido!";
+            
+            case "val001":
+                return "Valores inválidos!";
+            
             default:
                 return codigo;
         }
