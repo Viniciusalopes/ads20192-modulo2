@@ -1,0 +1,107 @@
+root@srv-gnuteca:/home/vovo# dpkg -i gnuteca_3.2.1.deb 
+A seleccionar pacote anteriormente não seleccionado gnuteca.
+(Lendo banco de dados ... 32976 ficheiros e directórios actualmente instalados.)
+A preparar para desempacotar gnuteca_3.2.1.deb ...
+A descompactar gnuteca (3.2) ...
+dpkg: problemas com dependências impedem a configuração de gnuteca:
+ gnuteca depende de php5-mysql; porém:
+  Pacote php5-mysql não está instalado.
+ gnuteca depende de php5-pgsql; porém:
+  Pacote php5-pgsql não está instalado.
+ gnuteca depende de php5-sqlite; porém:
+  Pacote php5-sqlite não está instalado.
+ gnuteca depende de php5-gd; porém:
+  Pacote php5-gd não está instalado.
+ gnuteca depende de php5-dev; porém:
+  Pacote php5-dev não está instalado.
+ gnuteca depende de php5-ldap; porém:
+  Pacote php5-ldap não está instalado.
+ gnuteca depende de php-pear; porém:
+  Pacote php-pear não está instalado.
+ gnuteca depende de libyaz-dev; porém:
+  Pacote libyaz-dev não está instalado.
+ gnuteca depende de postgresql; porém:
+  Pacote postgresql não está instalado.
+
+dpkg: erro ao processar o pacote gnuteca (--install):
+ problemas de dependência - deixando desconfigurado
+Erros foram encontrados durante o processamento de:
+ gnuteca
+root@srv-gnuteca:/home/vovo# 
+
+-------
+
+root@srv-gnuteca:/var/www# apt install php5-mysql php5-pgsql php5-sqlite php5-gd php5-dev php5-ldap php-pear libyaz-dev postgresql
+Lendo listas de pacotes... Pronto
+Construindo árvore de dependências       
+Lendo informação de estado... Pronto
+Você pode querer executar 'apt --fix-broken install' para corrigí-los.
+Os pacotes a seguir têm dependências desencontradas:
+ libyaz-dev : Depende: libyaz5 (= 5.27.1-2) mas não será instalado
+              Depende: libxslt1-dev mas não será instalado
+              Depende: libwrap0-dev mas não será instalado
+              Depende: libgnutls28-dev mas não será instalado
+              Depende: libicu-dev mas não será instalado
+              Recomenda: tcl mas não será instalado
+ php-pear : Depende: php-cli
+            Depende: php-common mas não será instalado
+            Depende: php-xml
+ php5-dev : Depende: autoconf (>= 2.63) mas não será instalado
+            Depende: automake (>= 1.11) mas não será instalado
+            Depende: libssl-dev mas não será instalado
+            Depende: libpcre3-dev mas não será instalado
+            Depende: libtool (>= 2.2) mas não será instalado
+            Depende: shtool mas não será instalado
+            Recomenda: pkg-php-tools mas não será instalado
+            Recomenda: dh-php5 mas não será instalado
+ php5-gd : Depende: libpng12-0 (>= 1.2.13-4) mas não será instalado
+           Depende: libvpx1 (>= 1.0.0) mas não será instalado
+ php5-mysql : Depende: libmysqlclient18 (>= 5.5.24+dfsg-1) mas não será instalado
+ php5-pgsql : Depende: libpq5 (>= 9.3~) mas não será instalado
+ postgresql : Depende: postgresql-11 mas não será instalado
+E: Dependências desencontradas. Tente 'apt --fix-broken install' sem nenhum pacote (ou especifique uma solução).
+root@srv-gnuteca:/var/www# apt install -f
+Lendo listas de pacotes... Pronto
+Construindo árvore de dependências       
+Lendo informação de estado... Pronto
+Corrigindo dependências... Pronto
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev binutils binutils-common binutils-x86-64-linux-gnu build-essential cpp cpp-8 debhelper dh-autoreconf
+  dh-php5 dh-strip-nondeterminism dirmngr dpkg-dev dwz fakeroot g++ g++-8 gcc gcc-8 gettext gnupg gnupg-l10n gnupg-utils gpg gpg-agent
+  gpg-wks-client gpg-wks-server gpgconf gpgsm icu-devtools intltool-debian libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl
+  libarchive-cpio-perl libarchive-zip-perl libasan5 libassuan0 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcroco3 libdpkg-perl
+  libevent-2.1-6 libfakeroot libfile-fcntllock-perl libfile-stripnondeterminism-perl libgcc-8-dev libgmp-dev libgmpxx4ldbl libgnutls-dane0
+  libgnutls-openssl27 libgnutls28-dev libgnutlsxx28 libgomp1 libicu-dev libidn2-dev libisl19 libitm1 libksba8 libllvm7 liblsan0 libltdl-dev
+  libltdl7 libmail-sendmail-perl libmpc3 libmpfr6 libmpx2 libmysqlclient18 libnpth0 libp11-kit-dev libpcre16-3 libpcre3-dev libpcre32-3
+  libpcrecpp0v5 libpng12-0 libpq5 libquadmath0 libsensors-config libsensors5 libsigsegv2 libsodium23 libssl-dev libstdc++-8-dev
+  libsys-hostname-long-perl libtasn1-6-dev libtasn1-doc libtcl8.6 libtool libtsan0 libubsan1 libunbound8 libvpx1 libwrap0-dev libxml2-dev
+  libxslt1-dev libxslt1.1 libyaz-dev libyaz5 linux-libc-dev m4 make manpages-dev mysql-common nettle-dev patch php-cli php-common php-pear php-xml
+  php5-dev php5-gd php5-ldap php5-mysql php5-pgsql php5-sqlite php7.3-cli php7.3-common php7.3-json php7.3-opcache php7.3-readline php7.3-xml
+  pinentry-curses pkg-php-tools po-debconf postgresql postgresql-11 postgresql-client-11 postgresql-client-common postgresql-common shtool sysstat
+  tcl tcl8.6
+Pacotes sugeridos:
+  autoconf-archive gnu-standards autoconf-doc binutils-doc cpp-doc gcc-8-locales dh-make dbus-user-session pinentry-gnome3 tor debian-keyring
+  g++-multilib g++-8-multilib gcc-8-doc libstdc++6-8-dbg gcc-multilib flex bison gdb gcc-doc gcc-8-multilib libgcc1-dbg libgomp1-dbg libitm1-dbg
+  libatomic1-dbg libasan5-dbg liblsan0-dbg libtsan0-dbg libubsan1-dbg libmpx2-dbg libquadmath0-dbg gettext-doc libasprintf-dev libgettextpo-dev
+  parcimonie xloadimage scdaemon glibc-doc git bzr gmp-doc libgmp10-doc libmpfr-dev dns-root-data gnutls-bin gnutls-doc icu-doc libtool-doc
+  lm-sensors libssl-doc libstdc++-8-doc gfortran | fortran95-compiler gcj-jdk pkg-config yaz-doc m4-doc make-doc ed diffutils-doc pinentry-doc
+  libmail-box-perl postgresql-doc postgresql-doc-11 libjson-perl isag tcl-tclreadline
+Os NOVOS pacotes a seguir serão instalados:
+  autoconf automake autopoint autotools-dev binutils binutils-common binutils-x86-64-linux-gnu build-essential cpp cpp-8 debhelper dh-autoreconf
+  dh-php5 dh-strip-nondeterminism dirmngr dpkg-dev dwz fakeroot g++ g++-8 gcc gcc-8 gettext gnupg gnupg-l10n gnupg-utils gpg gpg-agent
+  gpg-wks-client gpg-wks-server gpgconf gpgsm icu-devtools intltool-debian libalgorithm-diff-perl libalgorithm-diff-xs-perl libalgorithm-merge-perl
+  libarchive-cpio-perl libarchive-zip-perl libasan5 libassuan0 libatomic1 libbinutils libc-dev-bin libc6-dev libcc1-0 libcroco3 libdpkg-perl
+  libevent-2.1-6 libfakeroot libfile-fcntllock-perl libfile-stripnondeterminism-perl libgcc-8-dev libgmp-dev libgmpxx4ldbl libgnutls-dane0
+  libgnutls-openssl27 libgnutls28-dev libgnutlsxx28 libgomp1 libicu-dev libidn2-dev libisl19 libitm1 libksba8 libllvm7 liblsan0 libltdl-dev
+  libltdl7 libmail-sendmail-perl libmpc3 libmpfr6 libmpx2 libmysqlclient18 libnpth0 libp11-kit-dev libpcre16-3 libpcre3-dev libpcre32-3
+  libpcrecpp0v5 libpng12-0 libpq5 libquadmath0 libsensors-config libsensors5 libsigsegv2 libsodium23 libssl-dev libstdc++-8-dev
+  libsys-hostname-long-perl libtasn1-6-dev libtasn1-doc libtcl8.6 libtool libtsan0 libubsan1 libunbound8 libvpx1 libwrap0-dev libxml2-dev
+  libxslt1-dev libxslt1.1 libyaz-dev libyaz5 linux-libc-dev m4 make manpages-dev mysql-common nettle-dev patch php-cli php-common php-pear php-xml
+  php5-dev php5-gd php5-ldap php5-mysql php5-pgsql php5-sqlite php7.3-cli php7.3-common php7.3-json php7.3-opcache php7.3-readline php7.3-xml
+  pinentry-curses pkg-php-tools po-debconf postgresql postgresql-11 postgresql-client-11 postgresql-client-common postgresql-common shtool sysstat
+  tcl tcl8.6
+0 pacotes atualizados, 139 pacotes novos instalados, 0 a serem removidos e 0 não atualizados.
+1 pacotes não totalmente instalados ou removidos.
+É preciso baixar 119 MB de arquivos.
+Depois desta operação, 447 MB adicionais de espaço em disco serão usados.
+Você quer continuar? [S/n] s
