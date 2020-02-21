@@ -8,7 +8,6 @@ public class Pessoa {
     private float altura = 0;
     private String sexo = "";
 
-    // MÉTODOS
     // GET
     public String getNome() {
         return nome;
@@ -49,7 +48,7 @@ public class Pessoa {
     }
 
     public void setSexo(String sexo) throws Exception {
-        if (sexo.trim().length() == 0) {
+        if (sexo.trim().length() == 0 || (sexo != "Feminino" && sexo != "Masculino")) {
             throw new Exception("sex001");
         }
         this.sexo = sexo;
