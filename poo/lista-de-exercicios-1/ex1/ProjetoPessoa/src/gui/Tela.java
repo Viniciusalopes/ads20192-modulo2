@@ -5,10 +5,7 @@
  */
 package gui;
 
-import classes.Erro;
 import classes.Pessoa;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -198,19 +195,10 @@ public class Tela extends javax.swing.JFrame {
             jTextAreaSaida.grabFocus();
 
         } catch (Exception e) {
-            String codigo = e.getMessage();
-
-            if (codigo.toLowerCase().contains("empty string")) {
-                codigo = "cam001";
-            }
-            if (codigo.toLowerCase().contains("for input string")) {
-                codigo = "val001";
-            }
-
             JOptionPane.showMessageDialog(
                     null,
-                    new Erro(codigo).getMensagem(),
-                    "Erro (" + codigo + ")",
+                    e.getMessage(),
+                    "Opa!",
                     JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCalcularImcActionPerformed

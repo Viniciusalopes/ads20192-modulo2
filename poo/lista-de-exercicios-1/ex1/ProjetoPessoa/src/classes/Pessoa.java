@@ -28,35 +28,35 @@ public class Pessoa {
     // SET
     public void setNome(String nome) throws Exception {
         if (nome.trim().length() < 2) {
-            throw new Exception("nom001");
+            throw new Exception("Nome inválido!");
         }
         this.nome = nome;
     }
 
     public void setPeso(float peso) throws Exception {
         if (peso <= 0) {
-            throw new Exception("pes001");
+            throw new Exception("Peso não pode ser <= 0.");
         }
         this.peso = peso;
     }
 
     public void setAltura(float altura) throws Exception {
         if (altura <= 0) {
-            throw new Exception("alt001");
+            throw new Exception("Altura não pode ser <= 0.");
         }
         this.altura = altura;
     }
 
     public void setSexo(String sexo) throws Exception {
-        if (!sexo.equals("Feminino") && !sexo.equals("Masculino")) {
-            throw new Exception("sex001");
+        if (!sexo.toLowerCase().equals("feminino") && !sexo.toLowerCase().equals("masculino")) {
+            throw new Exception("Sexo deve ser Feminino ou Masculino");
         }
         this.sexo = sexo;
     }
 
     public float calcularImc() throws Exception {
         if (altura <= 0) {
-            throw new Exception("alt002");
+            throw new Exception("Não é possível calcular o IMC com a altura <= 0");
         }
         return (peso / (altura * altura));
     }
