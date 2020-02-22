@@ -34,7 +34,7 @@ public class Piramide {
         if (base <= 0 || altura <= 0) {
             throw new Exception("A Base e a Altura não podem ser <= 0!");
         }
-        return (float) (1 / 3 * base * altura);
+        return (float) 1 / (float) 3 * base * altura;
     }
 
 }
