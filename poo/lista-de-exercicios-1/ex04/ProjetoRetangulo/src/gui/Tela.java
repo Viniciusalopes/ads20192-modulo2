@@ -18,7 +18,11 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+        
+        // Centraliza o jFrame na tela
         this.setLocationRelativeTo(null);
+        
+        // Oculta o botão NovoCalculo
         jButtonNovoCalculo.setVisible(false);
     }
 
@@ -92,7 +96,7 @@ public class Tela extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jButtonNovoCalculo))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3)
                             .addComponent(jSeparator1)
@@ -125,22 +129,34 @@ public class Tela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNovoCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoCalculoActionPerformed
-        jTextAreaSaida.setText("");
+        
+        // Limpa conteúdo dos campos
         jTextFieldComprimento.setText("");
+        jTextFieldLargura.setText("");
+        jTextAreaSaida.setText("");
+        
+        // Habilita os campos para edição
         jTextFieldComprimento.setEnabled(true);
         jTextFieldLargura.setEnabled(true);
-        jTextFieldLargura.setText("");
+        
+        // Alterna a exibição dos botões
         jButtonCalcular.setVisible(true);
         jButtonNovoCalculo.setVisible(false);
-        jButtonCalcular.grabFocus();
+        
+        // Move o foco para o primeiro campo
+        jTextFieldComprimento.grabFocus();
     }//GEN-LAST:event_jButtonNovoCalculoActionPerformed
 
     private void jButtonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularActionPerformed
         try {
+            // Instancia um objeto da classe Retangulo
             Retangulo desenho = new Retangulo();
+            
+            // Valores dos atributos do objeto
             desenho.setComprimento(Integer.parseInt(jTextFieldComprimento.getText()));
             desenho.setLargura(Integer.parseInt(jTextFieldLargura.getText()));
 
+            // Texto de saída
             jTextAreaSaida.setText(String.format(
                     "DADOS DO RETÂNGULO:\n"
                     + "Comprimento: %d\n"
@@ -152,13 +168,20 @@ public class Tela extends javax.swing.JFrame {
                     desenho.calcularPerimetro(),
                     desenho.calcularArea()
             ));
+            
+            // Desabilita campos
             jTextFieldComprimento.setEnabled(false);
             jTextFieldLargura.setEnabled(false);
+            
+            // Alterna exibição dos botões
             jButtonCalcular.setVisible(false);
             jButtonNovoCalculo.setVisible(true);
+            
+            // Move o foco para a área de texto de saída
             jTextAreaSaida.grabFocus();
 
         } catch (Exception e) {
+            // Exibe mensagem em caso de exceção
             JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Eitalalá", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCalcularActionPerformed
