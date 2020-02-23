@@ -169,7 +169,6 @@ public class Tela extends javax.swing.JFrame {
             ser.setPeso(Float.parseFloat(jTextFieldPeso.getText().replace(",", ".")));
             ser.setAltura(Float.parseFloat(jTextFieldAltura.getText().replace(",", ".")));
             ser.setSexo(jComboBoxSexo.getSelectedItem().toString());
-            imc = ser.calcularImc();
 
             jTextAreaSaida.setText(String.format(
                     "DADOS DA PESSOA\n"
@@ -178,16 +177,12 @@ public class Tela extends javax.swing.JFrame {
                     + "PESO: %.2f\n"
                     + "ALTURA: %.2f\n"
                     + "SEXO %s\n"
-                    + "--------------------------------------------\n"
-                    + "RESULTADOS:\n"
-                    + "IMC: %.1f\n"
-                    + "SITUAÇÃO: %s",
+                    + "IMC: %.1f\n",
                     ser.getNome(),
                     ser.getPeso(),
                     ser.getAltura(),
                     ser.getSexo(),
-                    imc,
-                    ser.classificarImc(imc)
+                    ser.calcularImc()
             ));
 
             jButtonNovoCalculo.setVisible(true);

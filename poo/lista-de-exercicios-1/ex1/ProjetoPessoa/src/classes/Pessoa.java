@@ -60,19 +60,4 @@ public class Pessoa {
         }
         return (peso / (altura * altura));
     }
-
-    public String classificarImc(float imc) {
-
-        // FONTE: https://www.programasaudefacil.com.br/calculadora-de-imc
-        
-        if (imc < (float) 18.5) {
-            return "Magreza";
-        } else if (imc < (float) 24.9) {
-            return "Normal";
-        } else if (imc < (float) 29.9) {
-            return "Sobrepeso Grau II";
-        } else {
-            return "Obesidade Grave, Grau III";
-        }
-    }
 }
