@@ -154,6 +154,7 @@ public class Tela extends javax.swing.JFrame {
             // Move o foco para a área de texto de saída
             jTextAreaSaida.grabFocus();
         } catch (Exception e) {
+            // Exibe mensagem em caso de exceção
             JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Eita", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCalcularVolumeActionPerformed
