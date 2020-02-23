@@ -154,7 +154,7 @@ public class Tela extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
@@ -180,7 +180,7 @@ public class Tela extends javax.swing.JFrame {
                     + "PESO: %.2f\n"
                     + "ALTURA: %.2f\n"
                     + "SEXO %s\n"
-                    + "IMC: %.1f\n",
+                    + "IMC: %.1f",
                     ser.getNome(),
                     ser.getPeso(),
                     ser.getAltura(),
