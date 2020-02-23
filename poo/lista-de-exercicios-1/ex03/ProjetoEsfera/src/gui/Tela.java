@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Autor  : Vinicius Araujo Lopes <suporte@viniciusalopes.com.br>
+ * Data : 22/02/2020 Projeto: POO - Lista de Exercícios 1 Licença: MIT
+ * <https://opensource.org/licenses/MIT> - Copyright 2020 Viniciusalopes Tecnologia
  */
 package gui;
 
 import classes.Esfera;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author vovo
- */
 public class Tela extends javax.swing.JFrame {
 
     /**
@@ -19,7 +15,10 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+        // Centraliza o jFrame na tela
         this.setLocationRelativeTo(null);
+
+        // Oculta botão NovoCalculo
         jButtonNovoCalculo.setVisible(false);
     }
 
@@ -72,7 +71,7 @@ public class Tela extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSeparator1)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -87,13 +86,13 @@ public class Tela extends javax.swing.JFrame {
                                 .addComponent(jLabelRaio)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldRaio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(24, 24, 24))
+                        .addGap(0, 0, 0)))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelRaio)
                     .addComponent(jTextFieldRaio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -107,7 +106,7 @@ public class Tela extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -115,9 +114,13 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularActionPerformed
         try {
+            // Instancia objeto da classe esfera
             Esfera bola = new Esfera();
+
+            // Atribui valor ao raio da bola
             bola.setRaio(Float.parseFloat(jTextFieldRaio.getText()));
 
+            // Texto de saída
             jTextAreaSaida.setText(String.format(
                     "DADOS DA ESFERA:\n"
                     + "Raio: %.2f\n"
@@ -127,23 +130,41 @@ public class Tela extends javax.swing.JFrame {
                     bola.calcularArea(),
                     bola.calcularVolume()
             ));
+
+            // Desabilita campo Raio
             jTextFieldRaio.setEnabled(false);
+
+            // Oculta botão Calcular
             jButtonCalcular.setVisible(false);
+
+            // Exibe botão NovoCálculo
             jButtonNovoCalculo.setVisible(true);
+
+            // Move o foco para a área de texto de saída
             jTextAreaSaida.grabFocus();
-            
+
         } catch (Exception e) {
+            // Exibe mensagem em caso de exceção
             JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Ai...", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCalcularActionPerformed
 
     private void jButtonNovoCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoCalculoActionPerformed
+        // Limpa conteúdo do campo
+        // Habilita o campo
         jTextFieldRaio.setText("");
         jTextFieldRaio.setEnabled(true);
+
+        // Move o foco para o campo
         jTextFieldRaio.grabFocus();
-        
+
+        // Exibe o botão Calcular
         jButtonCalcular.setVisible(true);
+
+        // Oculta o botão NovoCalculo
         jButtonNovoCalculo.setVisible(false);
+
+        // Limpa o texto da saída
         jTextAreaSaida.setText("");
     }//GEN-LAST:event_jButtonNovoCalculoActionPerformed
 
