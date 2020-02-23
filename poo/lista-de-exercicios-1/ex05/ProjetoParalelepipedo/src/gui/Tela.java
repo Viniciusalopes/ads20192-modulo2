@@ -1,8 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// ---------------------------------------------------------------------------------------------------------
+// Copyright 2020 Viniciusalopes Tecnologia <suporte@viniciusalopes.com.br>
+// Licença      : MIT <https://opensource.org/licenses/MIT> 
+// Data         : 22/02/2020
+// Projeto      : POO - Lista de Exercícios 1 
+// Repositório  : <https://github.com/Viniciusalopes/ads20192-modulo2/tree/master/poo/lista-de-exercicios-1>
+// ---------------------------------------------------------------------------------------------------------
+
 package gui;
 
 import classes.Paralelepipedo;

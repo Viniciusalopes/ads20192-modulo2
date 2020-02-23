@@ -1,8 +1,10 @@
-/**
- * Autor  : Vinicius Araujo Lopes <suporte@viniciusalopes.com.br>
- * Data : 22/02/2020 Projeto: POO - Lista de Exercícios 1 Licença: MIT
- * <https://opensource.org/licenses/MIT> - Copyright 2020 Viniciusalopes Tecnologia
- */
+// ---------------------------------------------------------------------------------------------------------
+// Copyright 2020 Viniciusalopes Tecnologia <suporte@viniciusalopes.com.br>
+// Licença      : MIT <https://opensource.org/licenses/MIT> 
+// Data         : 22/02/2020
+// Projeto      : POO - Lista de Exercícios 1 
+// Repositório  : <https://github.com/Viniciusalopes/ads20192-modulo2/tree/master/poo/lista-de-exercicios-1>
+// ---------------------------------------------------------------------------------------------------------
 package gui;
 
 import classes.Pessoa;
@@ -17,7 +19,7 @@ public class Tela extends javax.swing.JFrame {
         initComponents();
         // Centraliza o jFrame na tela
         this.setLocationRelativeTo(null);
-        
+
         // Oculta o botão NovoCalculo
         jButtonNovoCalculo.setVisible(false);
     }
@@ -213,7 +215,6 @@ public class Tela extends javax.swing.JFrame {
 
         // Limpa o conteúdo dos campo
         // Habilita o campo para edição
-        
         jTextFieldNome.setText("");
         jTextFieldNome.setEnabled(true);
 
@@ -225,7 +226,7 @@ public class Tela extends javax.swing.JFrame {
 
         jComboBoxSexo.setSelectedIndex(0);
         jComboBoxSexo.setEnabled(true);
-        
+
         jTextAreaSaida.setText("");
 
         // Alterna a exibição dos botões
