@@ -1,3 +1,8 @@
+/**
+ * Autor  : Vinicius Araujo Lopes <suporte@viniciusalopes.com.br>
+ * Data : 22/02/2020 Projeto: POO - Lista de Exercícios 1 Licença: MIT
+ * <https://opensource.org/licenses/MIT> - Copyright 2020 Viniciusalopes Tecnologia
+ */
 package classes;
 
 public class Pessoa {
@@ -54,6 +59,7 @@ public class Pessoa {
         this.sexo = sexo;
     }
 
+    //  CÁLCULOS
     public float calcularImc() throws Exception {
         if (altura <= 0) {
             throw new Exception("Não é possível calcular o IMC com a altura <= 0");

@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Autor  : Vinicius Araujo Lopes <suporte@viniciusalopes.com.br>
+ * Data : 22/02/2020 Projeto: POO - Lista de Exercícios 1 Licença: MIT
+ * <https://opensource.org/licenses/MIT> - Copyright 2020 Viniciusalopes Tecnologia
  */
 package gui;
 
 import classes.Pessoa;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author vovo
- */
 public class Tela extends javax.swing.JFrame {
 
     /**
@@ -19,8 +15,10 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
-
+        // Centraliza o jFrame na tela
         this.setLocationRelativeTo(null);
+        
+        // Oculta o botão NovoCalculo
         jButtonNovoCalculo.setVisible(false);
     }
 
@@ -52,6 +50,7 @@ public class Tela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calcular IMC");
+        setResizable(false);
 
         jLabel1.setText("Nome");
 
@@ -162,14 +161,16 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonCalcularImcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularImcActionPerformed
         try {
+            // Instancia um objeto da classe Pessoa
             Pessoa ser = new Pessoa();
-            float imc = 0;
 
+            // Atribui valores aos atributos do objeto ser
             ser.setNome(jTextFieldNome.getText());
             ser.setPeso(Float.parseFloat(jTextFieldPeso.getText().replace(",", ".")));
             ser.setAltura(Float.parseFloat(jTextFieldAltura.getText().replace(",", ".")));
             ser.setSexo(jComboBoxSexo.getSelectedItem().toString());
 
+            // Atualiza o texto de saída
             jTextAreaSaida.setText(String.format(
                     "DADOS DA PESSOA\n"
                     + "--------------------------------------------\n"
@@ -185,11 +186,21 @@ public class Tela extends javax.swing.JFrame {
                     ser.calcularImc()
             ));
 
+            // Desabilita campos
+            jTextFieldNome.setEnabled(false);
+            jTextFieldPeso.setEnabled(false);
+            jTextFieldAltura.setEnabled(false);
+            jComboBoxSexo.setEnabled(false);
+
+            // Alterna a exibição dos botões
             jButtonNovoCalculo.setVisible(true);
             jButtonCalcularImc.setVisible(false);
+
+            // Move o foco para a área de texto Saida
             jTextAreaSaida.grabFocus();
 
         } catch (Exception e) {
+            // Exibe mensagem em caso de exceção
             JOptionPane.showMessageDialog(
                     null,
                     e.getMessage(),
@@ -200,14 +211,24 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonNovoCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoCalculoActionPerformed
 
-        // Limpa os campos
+        // Limpa o conteúdo dos campo
+        // Habilita o campo para edição
+        
         jTextFieldNome.setText("");
+        jTextFieldNome.setEnabled(true);
+
         jTextFieldPeso.setText("");
+        jTextFieldPeso.setEnabled(true);
+
         jTextFieldAltura.setText("");
+        jTextFieldAltura.setEnabled(true);
+
         jComboBoxSexo.setSelectedIndex(0);
+        jComboBoxSexo.setEnabled(true);
+        
         jTextAreaSaida.setText("");
 
-        // Exibição de botões
+        // Alterna a exibição dos botões
         jButtonNovoCalculo.setVisible(false);
         jButtonCalcularImc.setVisible(true);
 
