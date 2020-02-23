@@ -1,3 +1,8 @@
+/**
+ * Autor  : Vinicius Araujo Lopes <suporte@viniciusalopes.com.br>
+ * Data : 22/02/2020 Projeto: POO - Lista de Exercícios 1 Licença: MIT
+ * <https://opensource.org/licenses/MIT> - Copyright 2020 Viniciusalopes Tecnologia
+ */
 package classes;
 
 public class Piramide {
@@ -30,11 +35,11 @@ public class Piramide {
         this.altura = altura;
     }
 
+    // CÁLCULOS
     public float calcularVolume() throws Exception {
         if (base <= 0 || altura <= 0) {
             throw new Exception("A Base e a Altura não podem ser <= 0!");
         }
         return (float) 1 / (float) 3 * base * altura;
     }
-
 }

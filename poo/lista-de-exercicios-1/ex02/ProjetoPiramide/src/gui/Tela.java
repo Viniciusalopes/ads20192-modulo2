@@ -19,7 +19,10 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+        // jFrame no centro da tela
         this.setLocationRelativeTo(null);
+
+        // Oculta o botão novo cálculo
         jButtonNovoCalculo.setVisible(false);
     }
 
@@ -75,7 +78,7 @@ public class Tela extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
@@ -91,12 +94,12 @@ public class Tela extends javax.swing.JFrame {
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(jButtonNovoCalculo))
                     .addComponent(jScrollPane1))
-                .addGap(14, 14, 14))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextFieldBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -112,7 +115,7 @@ public class Tela extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -120,10 +123,14 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonCalcularVolumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularVolumeActionPerformed
         try {
+            // Instancia objeto da classe Piramide
             Piramide enfeite = new Piramide();
+
+            // Valores para os atributos do objeto
             enfeite.setBase(Float.parseFloat(jTextFieldBase.getText()));
             enfeite.setAltura(Float.parseFloat(jTextFieldAltura.getText()));
 
+            // Texto de saída
             jTextAreaSaida.setText(String.format(
                     "DADOS DA PIRAMIDE:\n"
                     + "Base: %.2f\n"
@@ -133,10 +140,18 @@ public class Tela extends javax.swing.JFrame {
                     enfeite.getAltura(),
                     enfeite.calcularVolume()
             ));
-            jTextFieldBase.setEditable(false);
-            jTextFieldAltura.setEditable(false);
+
+            // Desabilita campos
+            jTextFieldBase.setEnabled(false);
+            jTextFieldAltura.setEnabled(false);
+
+            // Oculta o botão CalcularVolume
             jButtonCalcularVolume.setVisible(false);
+
+            // Exibe o botão NovoCalculo
             jButtonNovoCalculo.setVisible(true);
+
+            // Move o foco para a área de texto de saída
             jTextAreaSaida.grabFocus();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Eita", JOptionPane.ERROR_MESSAGE);
@@ -145,14 +160,20 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonNovoCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoCalculoActionPerformed
 
+        // Limpa o conteúdo do campo
+        // Habilita o campo
         jTextFieldBase.setText("");
-        jTextFieldBase.setEditable(true);
+        jTextFieldBase.setEnabled(true);
+        
         jTextFieldAltura.setText("");
-        jTextFieldAltura.setEditable(true);
+        jTextFieldAltura.setEnabled(true);
+        
         jTextAreaSaida.setText("");
 
+        // Move o foco para o primeiro campo
         jTextFieldBase.grabFocus();
 
+        // Alterna exibição dos botões
         jButtonCalcularVolume.setVisible(true);
         jButtonNovoCalculo.setVisible(false);
     }//GEN-LAST:event_jButtonNovoCalculoActionPerformed
