@@ -5,7 +5,6 @@
 // Projeto      : POO - Lista de Exercícios 1 
 // Repositório  : <https://github.com/Viniciusalopes/ads20192-modulo2/tree/master/poo/lista-de-exercicios-1>
 // ---------------------------------------------------------------------------------------------------------
-
 package gui;
 
 import classes.Paralelepipedo;
@@ -22,7 +21,11 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+
+        // Centraliza o jFrame na tela
         this.setLocationRelativeTo(null);
+
+        // Oculta o botão NovoCalculo
         jButtonNovoCalculo.setVisible(false);
     }
 
@@ -37,37 +40,23 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jTextFieldAltura = new javax.swing.JTextField();
-        jButtonCalcular = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldLargura = new javax.swing.JTextField();
-        jButtonNovoCalculo = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldComprimento = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaSaida = new javax.swing.JTextArea();
+        jPanelBotoes = new javax.swing.JPanel();
+        jButtonCalcular = new javax.swing.JButton();
+        jButtonNovoCalculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Paralelepipedo");
 
         jLabel1.setText("Altura");
 
-        jButtonCalcular.setText("Calcular");
-        jButtonCalcular.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCalcularActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Largura");
-
-        jButtonNovoCalculo.setText("Novo Cálculo");
-        jButtonNovoCalculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNovoCalculoActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Comprimento");
 
@@ -78,64 +67,85 @@ public class Tela extends javax.swing.JFrame {
         jTextAreaSaida.setRows(5);
         jScrollPane1.setViewportView(jTextAreaSaida);
 
+        jButtonCalcular.setText("Calcular");
+        jButtonCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCalcularActionPerformed(evt);
+            }
+        });
+
+        jButtonNovoCalculo.setText("Novo Cálculo");
+        jButtonNovoCalculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNovoCalculoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelBotoesLayout = new javax.swing.GroupLayout(jPanelBotoes);
+        jPanelBotoes.setLayout(jPanelBotoesLayout);
+        jPanelBotoesLayout.setHorizontalGroup(
+            jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonNovoCalculo)
+                    .addComponent(jButtonCalcular))
+                .addGap(20, 20, 20))
+        );
+        jPanelBotoesLayout.setVerticalGroup(
+            jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonCalcular)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonNovoCalculo)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextFieldAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(44, 44, 44)
-                                        .addComponent(jButtonCalcular))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextFieldLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(44, 44, 44)
-                                        .addComponent(jButtonNovoCalculo))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel4)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1)))
-                .addGap(20, 20, 20))
+                            .addComponent(jTextFieldAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextFieldAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCalcular))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldLargura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jButtonNovoCalculo))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextFieldComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jTextFieldAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldLargura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextFieldComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
@@ -144,12 +154,15 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularActionPerformed
         try {
+            // Instancia um objeto da classe Paralelepipedo
             Paralelepipedo preda = new Paralelepipedo();
 
+            // Valores dos atributos do objeto
             preda.setAltura(Integer.parseInt(jTextFieldAltura.getText()));
             preda.setLargura(Integer.parseInt(jTextFieldLargura.getText()));
             preda.setComprimento(Integer.parseInt(jTextFieldComprimento.getText()));
 
+            // Texto de saída
             jTextAreaSaida.setText(String.format(
                     "MEDIDAS DO PARALELEPIPEDO:\n"
                     + "Altura: %d\n"
@@ -163,34 +176,44 @@ public class Tela extends javax.swing.JFrame {
                     preda.calcularVolume(),
                     preda.calcularArea()
             ));
-            
+
+            // Desabilita os campos
             jTextFieldAltura.setEnabled(false);
             jTextFieldLargura.setEnabled(false);
             jTextFieldComprimento.setEnabled(false);
-            
+
+            // Alterna exibição dos botões
             jButtonCalcular.setVisible(false);
             jButtonNovoCalculo.setVisible(true);
-            
+
+            // Move o foco para a área de texto de saída
             jTextAreaSaida.grabFocus();
 
         } catch (Exception e) {
+            // Exibe mensagem em caso de exceção
             JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Xiii", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCalcularActionPerformed
 
     private void jButtonNovoCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoCalculoActionPerformed
+
+        // Limpa conteúdo do campo
+        // Habilita o campo para edição
         jTextFieldAltura.setText("");
         jTextFieldAltura.setEnabled(true);
-        
+
         jTextFieldLargura.setText("");
         jTextFieldLargura.setEnabled(true);
-        
+
         jTextFieldComprimento.setText("");
         jTextFieldComprimento.setEnabled(true);
-        
+
         jButtonCalcular.setVisible(true);
         jButtonNovoCalculo.setVisible(false);
+
+        jTextAreaSaida.setText("");
         
+        // Move o foco para o campo Altura
         jTextFieldAltura.grabFocus();
     }//GEN-LAST:event_jButtonNovoCalculoActionPerformed
 
@@ -236,8 +259,8 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanelBotoes;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextAreaSaida;
     private javax.swing.JTextField jTextFieldAltura;
     private javax.swing.JTextField jTextFieldComprimento;
