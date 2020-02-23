@@ -5,7 +5,7 @@
  */
 package gui;
 
-import classes.Pessoa;
+import classes.Paciente;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,7 +49,7 @@ public class Tela extends javax.swing.JFrame {
         jButtonNovoCalculo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Calcular IMC");
+        setTitle("Paciente");
 
         jLabel1.setText("Nome");
 
@@ -150,7 +150,7 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonCalcularImcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularImcActionPerformed
         try {
-            Pessoa humano = new Pessoa();
+            Paciente humano = new Paciente();
             float imc = 0;
 
             humano.setNome(jTextFieldNome.getText());
@@ -159,15 +159,14 @@ public class Tela extends javax.swing.JFrame {
             imc = humano.calcularImc();
 
             jTextAreaSaida.setText(String.format(
-                    "DADOS DA PESSOA\n"
+                    "DADOS DO PACIENTE\n"
                     + "--------------------------------------------\n"
                     + "NOME: %s\n"
                     + "PESO: %.2f\n"
                     + "ALTURA: %.2f\n"
                     + "--------------------------------------------\n"
-                    + "RESULTADOS:\n"
                     + "IMC: %.1f\n"
-                    + "SITUAÇÃO: %s",
+                    + "DIAGNÓSTICO: %s",
                     humano.getNome(),
                     humano.getPeso(),
                     humano.getAltura(),
