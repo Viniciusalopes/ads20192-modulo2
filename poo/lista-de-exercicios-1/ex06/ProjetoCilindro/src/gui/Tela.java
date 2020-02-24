@@ -5,7 +5,6 @@
 // Projeto      : POO - Lista de Exercícios 1 
 // Repositório  : <https://github.com/Viniciusalopes/ads20192-modulo2/tree/master/poo/lista-de-exercicios-1>
 // ---------------------------------------------------------------------------------------------------------
-
 package gui;
 
 import classes.Cilindro;
@@ -22,7 +21,11 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+
+        // Centraliza o jFrame na tela
         this.setLocationRelativeTo(null);
+
+        // Oculta o botão NovoCalculo
         jButtonNovoCalculo.setVisible(false);
     }
 
@@ -35,21 +38,28 @@ public class Tela extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextFieldRaio = new javax.swing.JTextField();
-        jButtonCalcular = new javax.swing.JButton();
-        jButtonNovoCalculo = new javax.swing.JButton();
-        jTextFieldAltura = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaSaida = new javax.swing.JTextArea();
+        jPanelBotoes = new javax.swing.JPanel();
+        jButtonCalcular = new javax.swing.JButton();
+        jButtonNovoCalculo = new javax.swing.JButton();
+        jPanelCampos = new javax.swing.JPanel();
+        jTextFieldRaio = new javax.swing.JTextField();
+        jTextFieldAltura = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cilindro");
 
-        jLabel1.setText("Raio");
+        jLabel3.setText("Saída");
+
+        jTextAreaSaida.setEditable(false);
+        jTextAreaSaida.setColumns(20);
+        jTextAreaSaida.setRows(5);
+        jScrollPane1.setViewportView(jTextAreaSaida);
 
         jButtonCalcular.setText("Calcular");
         jButtonCalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -65,63 +75,91 @@ public class Tela extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanelBotoesLayout = new javax.swing.GroupLayout(jPanelBotoes);
+        jPanelBotoes.setLayout(jPanelBotoesLayout);
+        jPanelBotoesLayout.setHorizontalGroup(
+            jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonNovoCalculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonCalcular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
+        );
+        jPanelBotoesLayout.setVerticalGroup(
+            jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBotoesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonNovoCalculo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonCalcular)
+                .addContainerGap())
+        );
+
         jLabel2.setText("Altura");
 
-        jLabel3.setText("Saída");
+        jLabel1.setText("Raio");
 
-        jTextAreaSaida.setEditable(false);
-        jTextAreaSaida.setColumns(20);
-        jTextAreaSaida.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaSaida);
+        javax.swing.GroupLayout jPanelCamposLayout = new javax.swing.GroupLayout(jPanelCampos);
+        jPanelCampos.setLayout(jPanelCamposLayout);
+        jPanelCamposLayout.setHorizontalGroup(
+            jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCamposLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jTextFieldRaio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCamposLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jTextFieldAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanelCamposLayout.setVerticalGroup(
+            jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCamposLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextFieldRaio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(jPanelCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldRaio, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonCalcular))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonNovoCalculo))))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3)
-                            .addComponent(jSeparator1)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE))))
+                        .addComponent(jPanelCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextFieldRaio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonCalcular))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanelCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jButtonNovoCalculo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
@@ -130,17 +168,21 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularActionPerformed
         try {
+            // Instancia um novo objeto da classe Cilindro
             Cilindro lata = new Cilindro();
+
+            // Atribui valores ao objeto
             lata.setRaio(Integer.parseInt(jTextFieldRaio.getText()));
             lata.setAltura(Integer.parseInt(jTextFieldAltura.getText()));
 
+            // Texto de saída
             jTextAreaSaida.setText(String.format(
                     "DADOS DO CILINDRO:\n"
                     + "Raio: %d\n"
                     + "Altura: %d\n"
                     + "Área Lateral: %.2f\n"
                     + "Área Total: %.2f\n"
-                    + "Volume: %.2f\n",
+                    + "Volume: %.2f",
                     lata.getRaio(),
                     lata.getAltura(),
                     lata.calcularAreaLateral(),
@@ -148,29 +190,39 @@ public class Tela extends javax.swing.JFrame {
                     lata.calcularVolume()
             ));
 
-            jTextAreaSaida.grabFocus();
-
+            // Desabilita os campos para edição
             jTextFieldRaio.setEnabled(false);
             jTextFieldAltura.setEnabled(false);
 
+            // Alterna a exibição dos botões
             jButtonCalcular.setVisible(false);
             jButtonNovoCalculo.setVisible(true);
 
+            // Move o foco para a área do texto de saída
+            jTextAreaSaida.grabFocus();
+
         } catch (Exception e) {
+            // Exibe mensagem em caso de exceção
             JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCalcularActionPerformed
 
     private void jButtonNovoCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoCalculoActionPerformed
+
+        // Limpa o conteúdo dos campos
         jTextFieldRaio.setText("");
-        jTextFieldRaio.setEnabled(true);
         jTextFieldAltura.setText("");
+        jTextAreaSaida.setText("");
+
+        // Habilita os campos para edição
+        jTextFieldRaio.setEnabled(true);
         jTextFieldAltura.setEnabled(true);
 
+        // Alterna a visualização dos botões
         jButtonCalcular.setVisible(true);
         jButtonNovoCalculo.setVisible(false);
 
-        jTextAreaSaida.setText("");
+        // Move o foco para o primeiro campo
         jTextFieldRaio.grabFocus();
     }//GEN-LAST:event_jButtonNovoCalculoActionPerformed
 
@@ -216,8 +268,10 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanelBotoes;
+    private javax.swing.JPanel jPanelCampos;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextArea jTextAreaSaida;
     private javax.swing.JTextField jTextFieldAltura;
     private javax.swing.JTextField jTextFieldRaio;
