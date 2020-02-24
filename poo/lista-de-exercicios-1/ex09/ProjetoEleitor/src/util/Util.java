@@ -15,6 +15,10 @@ import java.util.Date;
 public class Util {
 
     // ÚTIL
+    /**
+     * Calcula a data atual do sistema
+     * @return int NNNN
+     */
     public static int getAnoAtual() {
         // FONTE: https://www.devmedia.com.br/como-pegar-a-data-do-sistema/1609
         DateFormat dateFormat = new SimpleDateFormat("yyyy");

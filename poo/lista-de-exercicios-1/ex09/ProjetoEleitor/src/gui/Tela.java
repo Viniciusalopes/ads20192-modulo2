@@ -12,10 +12,6 @@ import classes.Eleitor;
 import javax.swing.JOptionPane;
 import util.Util;
 
-/**
- *
- * @author vovo
- */
 public class Tela extends javax.swing.JFrame {
 
     /**
@@ -23,11 +19,20 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+        
+        // Atualiza itens no ComboBoxAno
         setItensJComboBoxAno();
+        
+        // Centraliza o jFrame na tela
         this.setLocationRelativeTo(null);
+        
+        // Oculta o botão NovoCálculo
         jButtonNovoCalculo.setVisible(false);
     }
 
+    /**
+     *  Inclui os anos de 0 até o ano atual no ComboBoxAno
+     */
     private void setItensJComboBoxAno() {
         for (int i = Util.getAnoAtual(); i >= 0; i--) {
             jComboBoxAno.addItem(String.format("%d", i));
@@ -130,10 +135,14 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularActionPerformed
         try {
+            // Instancia um novo objeto da classe Eleitor
             Eleitor pessoa = new Eleitor();
+            
+            // Atribui valores ao objeto pessoa
             pessoa.setNome(jTextFieldNome.getText());
             pessoa.setAnoDeNascimento(Integer.parseInt(jComboBoxAno.getSelectedItem().toString()));
 
+            // Texto de saída
             jTextAreaSaida.setText(String.format(
                     "DADOS DA PESSSOA:\n"
                     + "Nome: %s\n"
@@ -146,27 +155,37 @@ public class Tela extends javax.swing.JFrame {
                     pessoa.getTipoDeEleitor()
             ));
 
+            // Desabilita os campos para edição
             jTextFieldNome.setEnabled(false);
             jComboBoxAno.setEnabled(false);
 
+            // Alterna a exibição dos botões
             jButtonCalcular.setVisible(false);
             jButtonNovoCalculo.setVisible(true);
 
+            // Move o foco para a área de texto de saída
             jTextAreaSaida.grabFocus();
         } catch (Exception e) {
+            // Exibe uma mensagem em caso de exceção
             JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCalcularActionPerformed
 
     private void jButtonNovoCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoCalculoActionPerformed
+        // Limpa o conteúdo dos campos
         jTextFieldNome.setText("");
-        jTextFieldNome.setEnabled(true);
+        jTextAreaSaida.setText("");
+        
+        // Seleciona o primeiro item do ComboBoxAno
         jComboBoxAno.setSelectedIndex(0);
+        
+        // Habilita os campos para edição
+        jTextFieldNome.setEnabled(true);
         jComboBoxAno.setEnabled(true);
 
+        // Alterna a exibição dos botões
         jButtonCalcular.setVisible(true);
         jButtonNovoCalculo.setVisible(false);
-        jTextAreaSaida.setText("");
     }//GEN-LAST:event_jButtonNovoCalculoActionPerformed
 
     /**
