@@ -5,16 +5,11 @@
 // Projeto      : POO - Lista de Exercícios 1 
 // Repositório  : <https://github.com/Viniciusalopes/ads20192-modulo2/tree/master/poo/lista-de-exercicios-1>
 // ---------------------------------------------------------------------------------------------------------
-
 package gui;
 
 import classes.Paciente;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author vovo
- */
 public class Tela extends javax.swing.JFrame {
 
     /**
@@ -23,7 +18,10 @@ public class Tela extends javax.swing.JFrame {
     public Tela() {
         initComponents();
 
+        // Centraliza o jFrame na tela
         this.setLocationRelativeTo(null);
+
+        // Oculta o botão NovoCalculo
         jButtonNovoCalculo.setVisible(false);
     }
 
@@ -144,7 +142,7 @@ public class Tela extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
@@ -153,14 +151,21 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonCalcularImcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularImcActionPerformed
         try {
+            // Instancia um novo objeto da classe Paciente
             Paciente humano = new Paciente();
+
+            // Variável para armazenar o cálculo do imc
             float imc = 0;
 
+            // Atribui os valores do objeto
             humano.setNome(jTextFieldNome.getText());
             humano.setPeso(Float.parseFloat(jTextFieldPeso.getText().replace(",", ".")));
             humano.setAltura(Float.parseFloat(jTextFieldAltura.getText().replace(",", ".")));
+
+            // Cálculo do IMC
             imc = humano.calcularImc();
 
+            // Texto de Saída
             jTextAreaSaida.setText(String.format(
                     "DADOS DO PACIENTE\n"
                     + "--------------------------------------------\n"
@@ -177,39 +182,43 @@ public class Tela extends javax.swing.JFrame {
                     humano.calcularFaixa(imc)
             ));
 
+            // Desabilita os campos para edição
             jTextFieldNome.setEnabled(false);
             jTextFieldPeso.setEnabled(false);
             jTextFieldAltura.setEnabled(false);
 
+            // Alterna a exibição dos botões
             jButtonNovoCalculo.setVisible(true);
             jButtonCalcularImc.setVisible(false);
 
+            // Move o foco para a área de texto da saída
             jTextAreaSaida.grabFocus();
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    e.getMessage(),
-                    "Opa!",
-                    JOptionPane.ERROR_MESSAGE);
+            // Exibe mensagem em caso de exceção
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Eita!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCalcularImcActionPerformed
 
     private void jButtonNovoCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoCalculoActionPerformed
 
+        // Limpa o conteúdo dos campos
         jTextFieldNome.setText("");
-        jTextFieldNome.setEnabled(true);
         jTextFieldPeso.setText("");
-        jTextFieldPeso.setEnabled(true);
         jTextFieldAltura.setText("");
-        jTextFieldAltura.setEnabled(true);
         jTextAreaSaida.setText("");
 
+        // Habilita os campos para edição
+        jTextFieldNome.setEnabled(true);
+        jTextFieldPeso.setEnabled(true);
+        jTextFieldAltura.setEnabled(true);
+
+        // Alterna a exibição dos botões
         jButtonNovoCalculo.setVisible(false);
         jButtonCalcularImc.setVisible(true);
 
+        // Move o foco para o primeiro campo
         jTextFieldNome.grabFocus();
-
     }//GEN-LAST:event_jButtonNovoCalculoActionPerformed
 
     /**
