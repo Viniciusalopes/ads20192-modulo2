@@ -18,9 +18,9 @@ emp  -> Empreendedorismo
 
 er  -> Engenharia de Requisitos
 
-poo -> Programação Orientada a Objeto
-
 pn  -> Processos de Negócio
+
+poo -> Programação Orientada a Objeto
 
 rc  -> Redes de Computadores
 
