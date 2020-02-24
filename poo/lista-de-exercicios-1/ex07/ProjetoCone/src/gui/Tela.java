@@ -5,16 +5,11 @@
 // Projeto      : POO - Lista de Exercícios 1 
 // Repositório  : <https://github.com/Viniciusalopes/ads20192-modulo2/tree/master/poo/lista-de-exercicios-1>
 // ---------------------------------------------------------------------------------------------------------
-
 package gui;
 
 import classes.Cone;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author vovo
- */
 public class Tela extends javax.swing.JFrame {
 
     /**
@@ -22,7 +17,11 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
+
+        // Centraliza o jFrame na tela
         this.setLocationRelativeTo(null);
+
+        // Oculta o botão NovoCalculo
         jButtonNovoCalculo.setVisible(false);
     }
 
@@ -69,6 +68,7 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel3.setText("Saída");
 
+        jTextAreaSaida.setEditable(false);
         jTextAreaSaida.setColumns(20);
         jTextAreaSaida.setRows(5);
         jScrollPane1.setViewportView(jTextAreaSaida);
@@ -78,11 +78,13 @@ public class Tela extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel1)
@@ -96,15 +98,8 @@ public class Tela extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButtonNovoCalculo)
                                     .addComponent(jButtonCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel3)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator1)
-                            .addComponent(jScrollPane1))))
+                            .addComponent(jLabel3))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -125,7 +120,7 @@ public class Tela extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
 
@@ -134,10 +129,14 @@ public class Tela extends javax.swing.JFrame {
 
     private void jButtonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcularActionPerformed
         try {
+            // Instancia um novo objeto da classe Cone
             Cone chapeuDeBurro = new Cone();
+
+            // Atribui valores ao chapeuDeBurro XD
             chapeuDeBurro.setRaio(Integer.parseInt(jTextFieldRaio.getText()));
             chapeuDeBurro.setAltura(Integer.parseInt(jTextFieldAltura.getText()));
 
+            // Texto de saída
             jTextAreaSaida.setText(String.format(
                     "DADOS DO CONE:\n"
                     + "Raio: %d\n"
@@ -154,31 +153,39 @@ public class Tela extends javax.swing.JFrame {
                     chapeuDeBurro.calcularVolume()
             ));
 
+            // Desabilita os campos para edição
             jTextFieldRaio.setEnabled(false);
             jTextFieldAltura.setEnabled(false);
 
+            // Alterna a exibição dos botões
             jButtonCalcular.setVisible(false);
             jButtonNovoCalculo.setVisible(true);
 
+            // Move o foco para a área de texto de saída
             jTextAreaSaida.grabFocus();
 
         } catch (Exception e) {
+            // Exibe mensagem de erro em caso de exceção
             JOptionPane.showMessageDialog(rootPane, e.getMessage(), "Ops!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonCalcularActionPerformed
 
     private void jButtonNovoCalculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoCalculoActionPerformed
+        // Limpa o conteúdo dos campos
         jTextFieldRaio.setText("");
-        jTextFieldRaio.setEnabled(true);
-        jTextFieldRaio.grabFocus();
-
         jTextFieldAltura.setText("");
-        jTextFieldAltura.setEnabled(true);
-
         jTextAreaSaida.setText("");
 
+        // Habilita os campos para edição
+        jTextFieldRaio.setEnabled(true);
+        jTextFieldAltura.setEnabled(true);
+
+        // Alterna a exibição dos botões
         jButtonCalcular.setVisible(true);
         jButtonNovoCalculo.setVisible(false);
+
+        // Move o foco para o primeiro campo
+        jTextFieldRaio.grabFocus();
     }//GEN-LAST:event_jButtonNovoCalculoActionPerformed
 
     /**
