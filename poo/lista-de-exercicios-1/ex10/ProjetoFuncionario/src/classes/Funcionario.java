@@ -5,7 +5,6 @@
 // Projeto      : POO - Lista de Exercícios 1 
 // Repositório  : <https://github.com/Viniciusalopes/ads20192-modulo2/tree/master/poo/lista-de-exercicios-1>
 // ---------------------------------------------------------------------------------------------------------
-
 package classes;
 
 public class Funcionario {
@@ -90,13 +89,12 @@ public class Funcionario {
 
     public float getIrValorMensal() throws Exception {
         float valor = (float) (getIrParcela() - (filhos * 545));
-        /* 
-        E agora, José?
-        
         if (valor < 0) {
-            Mensagem de erro ou valor = 0 ??
+            /* 
+                E agora, José?
+                Mensagem de erro ou valor recebe 0 ??
+             */
         }
-         */
         return valor;
     }
 }
