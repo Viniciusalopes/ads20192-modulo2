@@ -38,6 +38,6 @@ public class Esfera {
         if (raio < 0) {
             throw new Exception("O raio não pode ser negativo!");
         }
-        return (float) ((4 / 3) * 3.1415 * raio * raio * raio);
+        return (float) ((4.0 / 3.0) * 3.1415 * raio * raio * raio);
     }
 }
